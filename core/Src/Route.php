@@ -23,7 +23,8 @@ class Route
 
     public function start(): void
     {
-        $path = explode('?', $_SERVER['REQUEST_URI'])[0];
+        // Убираем слэш с конца пути, если он есть
+        $path = rtrim(explode('?', $_SERVER['REQUEST_URI'])[0], '/');
         $path = substr($path, strlen(self::$prefix) + 1);
 
         if (!array_key_exists($path, self::$routes)) {
@@ -41,7 +42,7 @@ class Route
             throw new Error('This method does not exist');
         }
 
-
-        call_user_func([new $class, $action]);
+        call_user_func([new $class, $action], new Request());
     }
+
 }
