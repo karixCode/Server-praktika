@@ -58,4 +58,12 @@ class Auth
         return true;
     }
 
+    public static function isAdmin(): bool
+    {
+        if ($user = self::user()) {
+            return $user->isAdmin();
+        }
+        return false;
+    }
+
 }

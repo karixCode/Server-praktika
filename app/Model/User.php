@@ -14,7 +14,8 @@ class User extends Model implements IdentityInterface
     protected $fillable = [
         'name',
         'login',
-        'password'
+        'password',
+        'role_id'
     ];
 
     protected static function booted()
@@ -40,7 +41,12 @@ class User extends Model implements IdentityInterface
     //Возврат аутентифицированного пользователя
     public function attemptIdentity(array $credentials)
     {
-        return self::where(['login' => $credentials['login'],
-            'password' => md5($credentials['password'])])->first();
+        return self::where(['username' => $credentials['login'],
+            'password' => $credentials['password']])->first();
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role_id === 1;
     }
 }
