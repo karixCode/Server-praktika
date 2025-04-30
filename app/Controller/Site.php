@@ -16,6 +16,11 @@ class Site
         return new View('site.dashboard');
     }
 
+    public function employees(): string
+    {
+        return new View('site.employees_manage');
+    }
+
     public function login(Request $request): string
     {
         //Если просто обращение к странице, то отобразить форму
