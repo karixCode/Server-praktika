@@ -31,6 +31,11 @@ class Site
         return new View('site.groups_manage');
     }
 
+    public function disciplines(): string
+    {
+        return new View('site.disciplines_manage');
+    }
+
     public function login(Request $request): string
     {
         //Если просто обращение к странице, то отобразить форму

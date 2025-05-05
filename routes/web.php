@@ -10,5 +10,7 @@ Route::add('GET', '/students', [Controller\Site::class, 'students'])
     ->middleware('auth');
 Route::add('GET', '/groups', [Controller\Site::class, 'groups'])
     ->middleware('auth');
+Route::add('GET', '/disciplines', [Controller\Site::class, 'disciplines'])
+    ->middleware('auth');
 Route::add(['GET', 'POST'], '/login', [Controller\Site::class, 'login']);
 Route::add('GET', '/logout', [Controller\Site::class, 'logout']);
