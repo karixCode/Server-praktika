@@ -22,7 +22,8 @@ class Site
             app()->route->redirect('/main');
         }
 
-        return new View('site.employees_manage');
+        $users = User::all();
+        return new View('site.employees_manage', ['users' => $users]);
     }
 
     public function students(): string

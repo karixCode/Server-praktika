@@ -88,24 +88,24 @@
     <h2 class="section-title">Таблица сотрудников</h2>
 
     <div class="employees-table-container">
-        <table class="employees-table">
-            <thead>
-            <tr>
-                <th>Логин</th>
-                <th>Пароль</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>admin</td>
-                <td>••••••••</td>
-            </tr>
-            <tr>
-                <td>employee1</td>
-                <td>••••••••</td>
-            </tr>
-            </tbody>
-        </table>
+            <table class="employees-table">
+                <thead>
+                <tr>
+                    <th>Логин</th>
+                    <th>Пароль</th>
+                    <th>Роль</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($users as $user): ?>
+                    <tr>
+                        <td><?= $user->username ?></td>
+                        <td>••••••••</td>
+                        <td><?= $user->role->name ?? 'Не указана' ?></td>
+                    </tr>
+                <?php endforeach ?>
+                </tbody>
+            </table>
     </div>
 
     <h2 class="section-title">Добавить сотрудника</h2>
