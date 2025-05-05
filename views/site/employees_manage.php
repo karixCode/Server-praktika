@@ -1,10 +1,4 @@
 <style>
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
     .section-title {
         color: #34495e;
         margin: 2rem 0 1rem;

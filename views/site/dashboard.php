@@ -1,10 +1,4 @@
 <style>
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
-
     .dashboard {
         margin-top: 2rem;
     }
@@ -53,13 +47,6 @@
         font-weight: 500;
         font-size: 1.1rem;
         text-align: center;
-    }
-
-    .logout-container {
-        margin-top: 3rem;
-        text-align: center;
-        padding-top: 2rem;
-        border-top: 1px solid #ecf0f1;
     }
 </style>
 

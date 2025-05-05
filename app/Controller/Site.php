@@ -21,6 +21,11 @@ class Site
         return new View('site.employees_manage');
     }
 
+    public function students(): string
+    {
+        return new View('site.students_manage');
+    }
+
     public function login(Request $request): string
     {
         //Если просто обращение к странице, то отобразить форму

@@ -7,6 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pop it MVC</title>
 </head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+</style>
 <body>
 <header>
     <nav>
