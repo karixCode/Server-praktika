@@ -26,6 +26,11 @@ class Site
         return new View('site.students_manage');
     }
 
+    public function groups(): string
+    {
+        return new View('site.groups_manage');
+    }
+
     public function login(Request $request): string
     {
         //Если просто обращение к странице, то отобразить форму
