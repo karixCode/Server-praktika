@@ -19,23 +19,49 @@
         margin: 0 auto;
         padding: 0 20px;
     }
+
+    .header {
+        background-color: #2c3e50;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+        color: white;
+        font-size: 1.5rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.2s;
+    }
+
+    .logo:hover {
+        color: #ecf0f1;
+    }
+
+    .auth-link {
+        color: white;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        transition: background-color 0.2s;
+    }
+
+    .auth-link:hover {
+        background-color: rgba(255,255,255,0.1);
+    }
 </style>
 <body>
-<header>
-    <nav>
-        <a href="<?= app()->route->getUrl('/main') ?>">Главная</a>
-        <?php
-        if (!app()->auth::check()):
-            ?>
-            <a href="<?= app()->route->getUrl('/login') ?>">Вход</a>
-        <?php
-        else:
-            ?>
-            <a href="<?= app()->route->getUrl('/logout') ?>">Выход (<?= app()->auth::user()->username ?>)</a>
-        <?php
-        endif;
-        ?>
-    </nav>
+<header class="header">
+    <a href="<?= app()->route->getUrl('/main') ?>" class="logo">Деканат</a>
+
+    <?php if (app()->auth::check()): ?>
+        <a href="<?= app()->route->getUrl('/logout') ?>" class="auth-link">Выход (<?= app()->auth->user()->username ?>)</a>
+    <?php else: ?>
+        <a href="<?= app()->route->getUrl('/login') ?>" class="auth-link">Вход</a>
+    <?php endif; ?>
 </header>
 <main>
     <?= $content ?? '' ?>

@@ -36,6 +36,11 @@ class Site
         return new View('site.disciplines_manage');
     }
 
+    public function grades(): string
+    {
+        return new View('site.grades');
+    }
+
     public function login(Request $request): string
     {
         //Если просто обращение к странице, то отобразить форму

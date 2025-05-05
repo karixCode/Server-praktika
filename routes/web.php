@@ -4,6 +4,7 @@ use Src\Route;
 
 Route::add('GET', '/main', [Controller\Site::class, 'main'])
     ->middleware('auth');
+
 Route::add('GET', '/employees', [Controller\Site::class, 'employees'])
     ->middleware('admin');
 Route::add('GET', '/students', [Controller\Site::class, 'students'])
@@ -12,5 +13,8 @@ Route::add('GET', '/groups', [Controller\Site::class, 'groups'])
     ->middleware('auth');
 Route::add('GET', '/disciplines', [Controller\Site::class, 'disciplines'])
     ->middleware('auth');
+Route::add('GET', '/grades', [Controller\Site::class, 'grades'])
+    ->middleware('auth');
+
 Route::add(['GET', 'POST'], '/login', [Controller\Site::class, 'login']);
 Route::add('GET', '/logout', [Controller\Site::class, 'logout']);

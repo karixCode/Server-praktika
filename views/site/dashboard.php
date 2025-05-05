@@ -78,7 +78,7 @@
                     <a href="<?= app()->route->getUrl('/disciplines') ?>" class="functionality-link">Дисциплины</a>
                 </li>
                 <li class="functionality-item">
-                    <a href="<?= app()->route->getUrl('/progress') ?>" class="functionality-link">Успеваемость</a>
+                    <a href="<?= app()->route->getUrl('/grades') ?>" class="functionality-link">Успеваемость</a>
                 </li>
             <?php endif; ?>
         </ul>

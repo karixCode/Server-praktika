@@ -59,14 +59,7 @@
         margin-bottom: 2rem;
     }
 
-    .filter-form {
-        /*background: #f1f5f9;*/
-        /*padding: 1.5rem;*/
-        /*border-radius: 6px;*/
-        /*margin-bottom: 1rem;*/
-    }
-
-    .form-row {
+    .filter-form form {
         display: flex;
         align-items: flex-end;
         gap: 1.5rem;
@@ -103,6 +96,7 @@
         background-color: #2980b9;
         color: white;
         border: none;
+        margin-top: 1rem;
         padding: 0.75rem 1.5rem;
         border-radius: 4px;
         font-size: 1rem;
@@ -164,35 +158,33 @@
 
     <div class="filter-form">
         <form method="get">
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="filter_group">Группа</label>
-                    <select id="filter_group" name="group">
-                        <option value="">Все группы</option>
-                        <option value="1">401</option>
-                        <option value="2">302</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="filter_course">Курс</label>
-                    <select id="filter_course" name="course">
-                        <option value="">Все курсы</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="filter_semester">Семестр</label>
-                    <select id="filter_semester" name="semester">
-                        <option value="">Все семестры</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                    </select>
-                </div>
-            <button type="submit" class="submit-btn search-btn">Поиск</button>
+            <div class="form-group">
+                <label for="filter_group">Группа</label>
+                <select id="filter_group" name="group">
+                    <option value="">Все группы</option>
+                    <option value="1">401</option>
+                    <option value="2">302</option>
+                </select>
             </div>
+            <div class="form-group">
+                <label for="filter_course">Курс</label>
+                <select id="filter_course" name="course">
+                    <option value="">Все курсы</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="filter_semester">Семестр</label>
+                <select id="filter_semester" name="semester">
+                    <option value="">Все семестры</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </div>
+        <button type="submit" class="submit-btn search-btn">Поиск</button>
         </form>
     </div>
 
