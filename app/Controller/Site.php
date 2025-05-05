@@ -16,8 +16,12 @@ class Site
         return new View('site.dashboard');
     }
 
-    public function employees(): string
+    public function employees(Request $request): string
     {
+        if ($request->method === 'POST' && User::create([...$request->all(), 'role_id'=>2])) {
+            app()->route->redirect('/main');
+        }
+
         return new View('site.employees_manage');
     }
 

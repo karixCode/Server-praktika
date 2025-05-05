@@ -12,7 +12,7 @@ class User extends Model implements IdentityInterface
 
     public $timestamps = false;
     protected $fillable = [
-        'name',
+        'username',
         'login',
         'password',
         'role_id'
@@ -42,7 +42,7 @@ class User extends Model implements IdentityInterface
     public function attemptIdentity(array $credentials)
     {
         return self::where(['username' => $credentials['login'],
-            'password' => $credentials['password']])->first();
+            'password' => md5($credentials['password'])])->first();
     }
 
     public function isAdmin(): bool
