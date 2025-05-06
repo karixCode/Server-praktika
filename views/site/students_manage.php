@@ -134,24 +134,17 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Иванов</td>
-                <td>Иван</td>
-                <td>Иванович</td>
-                <td>Мужской</td>
-                <td>15.05.2000</td>
-                <td>ул. Ленина, 10</td>
-                <td>401</td>
-            </tr>
-            <tr>
-                <td>Петрова</td>
-                <td>Мария</td>
-                <td>Сергеевна</td>
-                <td>Женский</td>
-                <td>22.08.2001</td>
-                <td>ул. Гагарина, 5</td>
-                <td>302</td>
-            </tr>
+            <?php foreach ($students as $student): ?>
+                <tr>
+                    <td><?= $student->surname ?></td>
+                    <td><?= $student->name ?></td>
+                    <td><?= $student->patronym ?></td>
+                    <td><?= $student->gender->name ?></td>
+                    <td><?= $student->birth_date ?></td>
+                    <td><?= $student->address ?></td>
+                    <td><?= $student->group->name ?></td>
+                </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
@@ -170,7 +163,7 @@
                 </div>
                 <div class="form-group">
                     <label for="patronymic">Отчество</label>
-                    <input type="text" id="patronymic" name="patronymic">
+                    <input type="text" id="patronymic" name="patronym">
                 </div>
             </div>
 
