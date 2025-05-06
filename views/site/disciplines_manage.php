@@ -143,6 +143,21 @@
                     <label for="discipline_name">Название дисциплины</label>
                     <input type="text" id="discipline_name" name="name" required>
                 </div>
+
+                <div class="form-group">
+                    <label for="hours">Количество часов</label>
+                    <input type="number" id="hours" name="hours" min="1" max="999" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="control_type">Тип контроля</label>
+                    <select id="control_type" name="control_type_id" required>
+                        <option value="">Выберите тип контроля</option>
+                        <?php foreach ($control_types as $type): ?>
+                            <option value="<?= $type->id ?>"><?= $type->name ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
             </div>
             <button type="submit" class="submit-btn">Добавить</button>
         </form>

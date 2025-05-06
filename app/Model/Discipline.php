@@ -12,6 +12,7 @@ class Discipline extends Model
     public $timestamps = false;
     protected $fillable = [
         'name',
+        'control_type_id',
         'hours'
     ];
 
