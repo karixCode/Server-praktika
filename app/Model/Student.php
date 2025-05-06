@@ -20,7 +20,6 @@ class Student extends Model
         'group_id',
     ];
 
-    // Добавьте эти методы для отношений
     public function gender()
     {
         return $this->belongsTo(Gender::class, 'gender_id');

@@ -118,8 +118,8 @@
 
 <div class="container">
     <h1 class="page-title">Деканат</h1>
-    <h2 class="section-title">Таблица студентов</h2>
 
+    <h2 class="section-title">Таблица студентов</h2>
     <div class="students-table-container">
         <table class="students-table">
             <thead>
@@ -140,7 +140,7 @@
                     <td><?= $student->name ?></td>
                     <td><?= $student->patronym ?></td>
                     <td><?= $student->gender->name ?></td>
-                    <td><?= $student->birth_date ?></td>
+                    <td><?= date('d.m.Y', strtotime($student->birth_date)) ?></td>
                     <td><?= $student->address ?></td>
                     <td><?= $student->group->name ?></td>
                 </tr>
@@ -168,7 +168,6 @@
             </div>
 
             <div class="form-row">
-
                 <div class="form-group">
                     <label for="birth_date">Дата рождения</label>
                     <input type="date" id="birth_date" name="birth_date" required>
@@ -177,12 +176,13 @@
                 <div class="form-group">
                     <label>Пол</label>
                     <div class="radio-group">
-                        <label class="radio-option">
-                            <input type="radio" name="gender" value="1" required> Мужской
-                        </label>
-                        <label class="radio-option">
-                            <input type="radio" name="gender" value="2"> Женский
-                        </label>
+                        <?php foreach ($genders as $gender): ?>
+                            <label class="radio-option">
+                                <input type="radio" name="gender_id" value="<?= $gender->id ?>"
+                                    <?= $gender->id == 1 ? 'checked' : '' ?> required>
+                                <?= $gender->name ?>
+                            </label>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -197,9 +197,9 @@
                     <label for="group_id">Группа</label>
                     <select id="group_id" name="group_id" required>
                         <option value="">Выберите группу</option>
-                        <option value="1">401</option>
-                        <option value="2">422</option>
-                        <option value="3">433</option>
+                        <?php foreach ($groups as $group): ?>
+                            <option value="<?= $group->id ?>"><?= $group->name ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
             </div>
