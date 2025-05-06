@@ -1,10 +1,4 @@
 <style>
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-    }
-
     .page-title {
         text-align: center;
         color: #2c3e50;
@@ -126,18 +120,18 @@
             <thead>
             <tr>
                 <th>Название дисциплины</th>
+                <th>Тип зачета</th>
+                <th>Количество часов</th>
             </tr>
             </thead>
             <tbody>
+            <?php foreach ($disciplines as $discipline): ?>
             <tr>
-                <td>Математический анализ</td>
+                <td><?=$discipline->name?></td>
+                <td><?=$discipline->control_type->name?></td>
+                <td><?=$discipline->hours?></td>
             </tr>
-            <tr>
-                <td>Программирование</td>
-            </tr>
-            <tr>
-                <td>Базы данных</td>
-            </tr>
+            <?php endforeach ?>
             </tbody>
         </table>
     </div>

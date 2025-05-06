@@ -11,7 +11,7 @@ Route::add(['GET', 'POST'], '/students', [Controller\StudentController::class, '
     ->middleware('auth');
 Route::add('GET', '/groups', [Controller\GroupController::class, 'groups'])
     ->middleware('auth');
-Route::add('GET', '/disciplines', [Controller\DisciplineController::class, 'disciplines'])
+Route::add(['GET', 'POST'], '/disciplines', [Controller\DisciplineController::class, 'disciplines'])
     ->middleware('auth');
 Route::add('GET', '/grades', [Controller\GradeController::class, 'grades'])
     ->middleware('auth');
