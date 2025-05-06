@@ -99,6 +99,21 @@
     .submit-btn:hover {
         background-color: #3498db;
     }
+
+    .delete-btn {
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+    }
+
+    .delete-btn:hover {
+        background-color: #c0392b;
+    }
 </style>
 
 <div class="container">
@@ -112,6 +127,7 @@
                 <th>Группа</th>
                 <th>Количество студентов</th>
                 <th>Курс</th>
+                <th>Действия</th>
             </tr>
             </thead>
             <tbody>
@@ -120,6 +136,15 @@
                     <td><?= $group->name ?></td>
                     <td class="groups-count"><?= $group->students_count ?></td>
                     <td><?= $group->course ?></td>
+                    <td>
+                        <form method="post" style="display: inline;">
+                            <input type="hidden" name="delete_group" value="<?= $group->id ?>">
+                            <button type="submit" class="delete-btn"
+                                    onclick="return confirm('Вы уверены? Все студенты связаные с группой будут также удалены вместе с группой.')">
+                                Удалить
+                            </button>
+                        </form>
+                    </td>
                 </tr>
             <?php endforeach; ?>
             </tbody>
