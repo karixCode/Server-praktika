@@ -129,27 +129,24 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>Иванов И.И.</td>
-                <td>422</td>
-                <td>Математический анализ</td>
-                <td>Экзамен</td>
-                <td>4.5</td>
-            </tr>
-            <tr>
-                <td>Петрова М.С.</td>
-                <td>422</td>
-                <td>Программирование</td>
-                <td>Зачет</td>
-                <td>5.0</td>
-            </tr>
-            <tr>
-                <td>Иванов И.И.</td>
-                <td>422</td>
-                <td>Базы данных</td>
-                <td>Экзамен</td>
-                <td>4.2</td>
-            </tr>
+            <?php foreach ($grades as $studentGrades): ?>
+                <?php foreach ($studentGrades as $disciplineGrades): ?>
+                    <?php $firstGrade = $disciplineGrades->first(); ?>
+                    <tr>
+                        <td>
+                            <?= $firstGrade->student->surname ?>
+                            <?= $firstGrade->student->name ?>
+                            <?= $firstGrade->student->patronym ?>
+                        </td>
+                        <td><?= $firstGrade->student->group->name ?? 'Нет группы' ?></td>
+                        <td><?= $firstGrade->discipline->name ?></td>
+                        <td><?= $firstGrade->discipline->control_type->name ?? 'Не указан' ?></td>
+                        <td>
+                            <?=number_format($firstGrade->avg_grade, 2)?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
