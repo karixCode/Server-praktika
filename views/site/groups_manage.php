@@ -112,22 +112,16 @@
                 <th>Группа</th>
                 <th>Количество студентов</th>
                 <th>Курс</th>
-                <th>Семестр</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>401</td>
-                <td>25</td>
-                <td>4</td>
-                <td>8</td>
-            </tr>
-            <tr>
-                <td>302</td>
-                <td>30</td>
-                <td>3</td>
-                <td>6</td>
-            </tr>
+            <?php foreach ($groups as $group): ?>
+                <tr>
+                    <td><?= $group->name ?></td>
+                    <td class="groups-count"><?= $group->students_count ?></td>
+                    <td><?= $group->course ?></td>
+                </tr>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
@@ -143,10 +137,6 @@
                 <div class="form-group">
                     <label for="course">Курс</label>
                     <input type="number" id="course" name="course" min="1" max="6" required>
-                </div>
-                <div class="form-group">
-                    <label for="semester">Семестр</label>
-                    <input type="number" id="semester" name="semester" min="1" max="12" required>
                 </div>
             </div>
 

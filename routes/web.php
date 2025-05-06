@@ -9,7 +9,7 @@ Route::add(['GET', 'POST'], '/employees', [Controller\UserController::class, 'us
     ->middleware('admin');
 Route::add(['GET', 'POST'], '/students', [Controller\StudentController::class, 'students'])
     ->middleware('auth');
-Route::add('GET', '/groups', [Controller\GroupController::class, 'groups'])
+Route::add(['GET', 'POST'], '/groups', [Controller\GroupController::class, 'groups'])
     ->middleware('auth');
 Route::add(['GET', 'POST'], '/disciplines', [Controller\DisciplineController::class, 'disciplines'])
     ->middleware('auth');

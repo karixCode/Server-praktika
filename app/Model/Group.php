@@ -11,6 +11,13 @@ class Group extends Model
 
     public $timestamps = false;
     protected $fillable = [
-        'name'
+        'name',
+        'course',
+        'user_id'
     ];
+
+    public function students()
+    {
+        return $this->hasMany(Student::class, 'group_id');
+    }
 }
