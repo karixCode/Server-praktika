@@ -2,48 +2,15 @@
 
 namespace Controller;
 
-use Model\Post;
-use Model\User;
-use Src\Route;
 use Src\Auth\Auth;
 use Src\View;
 use Src\Request;
 
-class Site
+class SiteController
 {
     public function main(): string
     {
         return new View('site.dashboard');
-    }
-
-    public function employees(Request $request): string
-    {
-        if ($request->method === 'POST' && User::create([...$request->all(), 'role_id'=>2])) {
-            app()->route->redirect('/main');
-        }
-
-        $users = User::all();
-        return new View('site.employees_manage', ['users' => $users]);
-    }
-
-    public function students(): string
-    {
-        return new View('site.students_manage');
-    }
-
-    public function groups(): string
-    {
-        return new View('site.groups_manage');
-    }
-
-    public function disciplines(): string
-    {
-        return new View('site.disciplines_manage');
-    }
-
-    public function grades(): string
-    {
-        return new View('site.grades');
     }
 
     public function login(Request $request): string

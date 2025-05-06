@@ -2,19 +2,19 @@
 
 use Src\Route;
 
-Route::add('GET', '/main', [Controller\Site::class, 'main'])
+Route::add('GET', '/main', [Controller\SiteController::class, 'main'])
     ->middleware('auth');
 
-Route::add(['GET', 'POST'], '/employees', [Controller\Site::class, 'employees'])
+Route::add(['GET', 'POST'], '/employees', [Controller\UserController::class, 'users'])
     ->middleware('admin');
-Route::add('GET', '/students', [Controller\Site::class, 'students'])
+Route::add('GET', '/students', [Controller\StudentController::class, 'students'])
     ->middleware('auth');
-Route::add('GET', '/groups', [Controller\Site::class, 'groups'])
+Route::add('GET', '/groups', [Controller\GroupController::class, 'groups'])
     ->middleware('auth');
-Route::add('GET', '/disciplines', [Controller\Site::class, 'disciplines'])
+Route::add('GET', '/disciplines', [Controller\DisciplineController::class, 'disciplines'])
     ->middleware('auth');
-Route::add('GET', '/grades', [Controller\Site::class, 'grades'])
+Route::add('GET', '/grades', [Controller\GradeController::class, 'grades'])
     ->middleware('auth');
 
-Route::add(['GET', 'POST'], '/login', [Controller\Site::class, 'login']);
-Route::add('GET', '/logout', [Controller\Site::class, 'logout']);
+Route::add(['GET', 'POST'], '/login', [Controller\SiteController::class, 'login']);
+Route::add('GET', '/logout', [Controller\SiteController::class, 'logout']);

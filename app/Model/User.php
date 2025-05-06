@@ -52,6 +52,6 @@ class User extends Model implements IdentityInterface
 
     public function isAdmin(): bool
     {
-        return $this->role_id === 1;
+        return $this->role->name === 'admin';
     }
 }
