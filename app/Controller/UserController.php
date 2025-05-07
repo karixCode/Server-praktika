@@ -42,11 +42,12 @@ class UserController
 
             $validator = new Validator($request->all(), [
                 'username' => ['required', 'unique:users,username'],
-                'password' => ['required', 'min:6']
+                'password' => ['required', 'min:6', 'max:16']
             ], [
                 'required' => 'Поле :field пусто',
                 'unique' => 'Поле :field должно быть уникально',
-                'min' => 'Поле :field слишком короткое'
+                'min' => 'Поле :field слишком короткое',
+                'max' => 'Поле :field слишком длинное',
             ]);
 
             if($validator->fails()){

@@ -12,7 +12,7 @@ return [
     'validators' => [
         'required' => \Validators\RequireValidator::class,
         'unique' => \Validators\UniqueValidator::class,
-        'min' => \Validators\MinValidator::class,
-        'max' => \Validators\MaxValidator::class,
+        'min' => \Validators\MinLengthValidator::class,
+        'max' => \Validators\MaxLengthValidator::class,
     ]
 ];

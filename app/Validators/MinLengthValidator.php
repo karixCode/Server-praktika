@@ -4,7 +4,7 @@ namespace Validators;
 
 use Src\Validator\AbstractValidator;
 
-class MinValidator extends AbstractValidator
+class MinLengthValidator extends AbstractValidator
 {
     protected string $message = 'Field :field must be at least :min characters';
 
