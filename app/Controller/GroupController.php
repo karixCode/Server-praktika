@@ -11,6 +11,13 @@ class GroupController
 {
     public function groups(Request $request): string
     {
+        if ($request->method === 'POST' && array_key_exists('search_text', $_POST)) {
+            $groups = Group::where('name', 'LIKE', '%'.$request->search_text.'%')->get();
+
+            return new View('site.groups_manage', ['groups' => $groups, 'search_text' => $request->search_text]);
+        }
+
+
         if ($request->method === 'POST' && array_key_exists('group', $_POST)) {
             echo $request->group;
             Group::create([

@@ -70,8 +70,8 @@
         color: #34495e;
     }
 
-    .form-group input,
-    .form-group select {
+    form input,
+    form select {
         width: 100%;
         padding: 0.75rem;
         border: 1px solid #d6dbdf;
@@ -79,8 +79,8 @@
         font-size: 1rem;
     }
 
-    .form-group input:focus,
-    .form-group select:focus {
+    form input:focus,
+    form select:focus {
         border-color: #2980b9;
         outline: none;
     }
@@ -114,11 +114,26 @@
     .delete-btn:hover {
         background-color: #c0392b;
     }
+
+    .search-form form {
+        display: flex;
+        margin: 1.5rem 0;
+        gap: 0.5rem;
+        max-width: 500px;
+    }
 </style>
 
 <div class="container">
     <h1 class="page-title">Деканат</h1>
     <h2 class="section-title">Таблица групп</h2>
+
+    <div class="search-form">
+        <form method="post" class="search-form-inner">
+            <input type="search" name="search_text" class="search-input" placeholder="Поиск по номеру группы"
+                   value="<?= htmlspecialchars($search_text ?? '') ?>">
+            <button type="submit" class="search-btn submit-btn">Поиск</button>
+        </form>
+    </div>
 
     <div class="groups-table-container">
         <table class="groups-table">
