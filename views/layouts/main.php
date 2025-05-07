@@ -29,6 +29,12 @@
         box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
+    .error-message {
+        font-size: 0.875rem;
+        color: #e74c3c;
+        margin-bottom: 0.5rem;
+    }
+
     .logo {
         color: white;
         font-size: 1.5rem;

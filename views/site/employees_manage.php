@@ -109,15 +109,22 @@
     </div>
 
     <h2 class="section-title">Добавить сотрудника</h2>
+
     <div class="add-employee-form">
         <form method="post">
             <div class="form-group">
                 <label for="username">Логин</label>
-                <input type="text" id="username" name="username" required>
+                <?php if (isset($username_error)): ?>
+                    <p class="error-message"><?= $username_error ?></p>
+                <?php endif; ?>
+                <input type="text" id="username" name="username">
             </div>
             <div class="form-group">
                 <label for="password">Пароль</label>
-                <input type="password" id="password" name="password" required>
+                <?php if (isset($password_error)): ?>
+                    <p class="error-message"><?= $password_error ?></p>
+                <?php endif; ?>
+                <input type="password" id="password" name="password">
             </div>
             <button type="submit" class="submit-btn">Добавить сотрудника</button>
         </form>
