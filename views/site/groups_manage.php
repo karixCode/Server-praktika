@@ -102,6 +102,7 @@
 
     .delete-btn {
         background-color: #e74c3c;
+        text-decoration: none;
         color: white;
         border: none;
         padding: 0.5rem 1rem;
@@ -128,9 +129,18 @@
     <h2 class="section-title">Таблица групп</h2>
 
     <div class="search-form">
-        <form method="post" class="search-form-inner">
+        <form method="post">
             <input type="search" name="search_text" class="search-input" placeholder="Поиск по номеру группы"
                    value="<?= htmlspecialchars($search_text ?? '') ?>">
+
+            <select name="filter_course" class="form-control">
+                <option value="all">Все курсы</option>
+                <?php for($i = 1; $i <= 6; $i++): ?>
+                    <option value="<?= $i ?>" <?= ($selected_course ?? 'all') == $i ? 'selected' : '' ?>>
+                        <?= $i ?> курс
+                    </option>
+                <?php endfor; ?>
+            </select>
             <button type="submit" class="search-btn submit-btn">Поиск</button>
         </form>
     </div>

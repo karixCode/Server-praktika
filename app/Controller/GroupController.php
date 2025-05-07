@@ -11,15 +11,15 @@ class GroupController
 {
     public function groups(Request $request): string
     {
-        if ($request->method === 'POST' && array_key_exists('search_text', $_POST)) {
-            $groups = Group::where('name', 'LIKE', '%'.$request->search_text.'%')->get();
+        $search_text = null;
+        $filter_course = '';
 
-            return new View('site.groups_manage', ['groups' => $groups, 'search_text' => $request->search_text]);
+        if ($request->method === 'POST' && array_key_exists('search_text', $_POST)) {
+            $search_text = $request->search_text;
+            $filter_course = $request->filter_course;
         }
 
-
         if ($request->method === 'POST' && array_key_exists('group', $_POST)) {
-            echo $request->group;
             Group::create([
                 'name' => $request->group,
                 'course' => $request->course,
@@ -39,8 +39,11 @@ class GroupController
             app()->route->redirect('/groups');
         }
 
-        $groups = Group::withCount('students')->orderBy('name')->get();
+        $groups = Group::withCount('students')->where('name', 'LIKE', '%'.$search_text.'%')->orderBy('name')->get();
+        if (array_key_exists('filter_course', $_POST) && $request->filter_course !== 'all') {
+            $groups = $groups->where('course', $request->filter_course);
+        }
 
-        return new View('site.groups_manage', ['groups' => $groups]);
+        return new View('site.groups_manage', ['groups' => $groups, 'search_text' => $search_text, 'selected_course'=> $filter_course]);
     }
 }
