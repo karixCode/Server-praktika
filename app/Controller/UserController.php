@@ -31,6 +31,7 @@ class UserController
 
             if (User::create($request->all())) {
                 app()->route->redirect('/login');
+                return false;
             }
         }
         return new View('site.signup');
@@ -51,14 +52,18 @@ class UserController
             ]);
 
             if($validator->fails()){
-                return new View('site.employees_manage',
-                    ['username_error' => $validator->errors()['username'][0] ?? null,
-                    'password_error' => $validator->errors()['password'][0] ?? null,
-                    'users' => User::all()]);
+                    echo var_dump($validator->errors());
+                    return new View('site.employees_manage',
+                        ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE), 'users' => User::all()]);
+//                return new View('site.employees_manage',
+//                    ['username_error' => $validator->errors()['username'][0] ?? null,
+//                    'password_error' => $validator->errors()['password'][0] ?? null,
+//                    'users' => User::all()]);
             }
 
             if (User::create([...$request->all(), 'role_id'=>Role::where('name', 'employee')->first()->id])) {
                 app()->route->redirect('/employees');
+                return '';
             }
         }
 
