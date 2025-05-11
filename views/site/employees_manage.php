@@ -28,7 +28,7 @@
     <div class="add-employee-form">
         <form method="post">
             <div class="form-group">
-                <h3><?= $message ?? ''; ?></h3>
+<!--                <h3>--><?php //= $message ?? ''; ?><!--</h3>-->
                 <label for="username">Логин</label>
                 <?php if (isset($username_error)): ?>
                     <p class="error-message" id="username_error"><?= $username_error ?></p>
