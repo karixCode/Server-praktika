@@ -3,10 +3,10 @@
 namespace Controller;
 
 use Src\Request;
-use Src\Validator\Validator;
 use Src\View;
 use Model\Role;
 use Model\User;
+use PhpValidator\Validator;
 
 class UserController
 {
