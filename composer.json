@@ -10,7 +10,8 @@
         "illuminate/events": "^11.0",
         "nikic/fast-route": "^2.0@dev",
         "karix-code/php-validator": "dev-main",
-        "phpunit/phpunit": "11.5.x-dev"
+        "phpunit/phpunit": "11.5.x-dev",
+        "jurapro/collect": "dev-master"
 
     },
     "autoload": {

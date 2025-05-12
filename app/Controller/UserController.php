@@ -52,9 +52,6 @@ class UserController
             ]);
 
             if($validator->fails()){
-//                    echo var_dump($validator->errors());
-//                    return new View('site.employees_manage',
-//                        ['message' => json_encode($validator->errors(), JSON_UNESCAPED_UNICODE), 'users' => User::all()]);
                 return new View('site.employees_manage',
                     ['username_error' => $validator->errors()['username'][0] ?? null,
                     'password_error' => $validator->errors()['password'][0] ?? null,

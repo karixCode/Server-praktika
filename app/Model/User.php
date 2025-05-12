@@ -13,7 +13,6 @@ class User extends Model implements IdentityInterface
     public $timestamps = false;
     protected $fillable = [
         'username',
-        'login',
         'password',
         'role_id'
     ];
@@ -41,7 +40,7 @@ class User extends Model implements IdentityInterface
     //Возврат аутентифицированного пользователя
     public function attemptIdentity(array $credentials)
     {
-        return self::where(['username' => $credentials['login'],
+        return self::where(['username' => $credentials['username'],
             'password' => md5($credentials['password'])])->first();
     }
 

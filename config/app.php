@@ -9,11 +9,9 @@ return [
         'auth' => \Middlewares\AuthMiddleware::class,
         'admin' => \Middlewares\AdminMiddleware::class,
     ],
-    'validators' => [
-        'required' => \Validators\RequireValidator::class,
-        'unique' => \Validators\UniqueValidator::class,
-        'min' => \Validators\MinLengthValidator::class,
-        'max' => \Validators\MaxLengthValidator::class,
+    //Классы для middleware
+    'routeAppMiddleware' => [
+        'json' => \Middlewares\JSONMiddleware::class,
     ],
     'providers' => [
         'kernel' => \Providers\KernelProvider::class,
