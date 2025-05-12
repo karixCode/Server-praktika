@@ -14,5 +14,12 @@ return [
         'unique' => \Validators\UniqueValidator::class,
         'min' => \Validators\MinLengthValidator::class,
         'max' => \Validators\MaxLengthValidator::class,
-    ]
+    ],
+    'providers' => [
+        'kernel' => \Providers\KernelProvider::class,
+        'route' => \Providers\RouteProvider::class,
+        'db' => \Providers\DBProvider::class,
+        'auth' => \Providers\AuthProvider::class,
+    ],
+
 ];
